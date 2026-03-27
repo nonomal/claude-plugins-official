@@ -418,7 +418,14 @@ const ECHO_WINDOW_MS = 15000
 const echo = new Map<string, number>()
 
 function echoKey(raw: string): string {
-  return raw.trim().replace(/\s+/g, ' ').slice(0, 120)
+  return raw
+    .replace(/\s*Sent by Claude\s*$/, '')     // strip signature before \s collapse eats the \n
+    .replace(/[\u200d\ufe00-\ufe0f]/g, '')    // ZWJ + emoji variation selectors (chat.db adds/drops these)
+    .replace(/[\u2018\u2019]/g, "'")          // smart → straight single quote
+    .replace(/[\u201c\u201d]/g, '"')          // smart → straight double quote
+    .trim()
+    .replace(/\s+/g, ' ')
+    .slice(0, 120)
 }
 
 function trackEcho(chatGuid: string, key: string): void {
