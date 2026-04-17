@@ -471,6 +471,19 @@
       "homepage": "https://github.com/awslabs/agent-plugins"
     },
     {
+      "name": "datadog",
+      "description": "Use Datadog directly in Claude Code through a preconfigured Datadog MCP server. Query logs, metrics, traces, dashboards, and more through natural conversation. This plugin is in preview.",
+      "author": {
+        "name": "Datadog"
+      },
+      "category": "monitoring",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/datadog-labs/claude-code-plugin.git"
+      },
+      "homepage": "https://www.datadoghq.com/"
+    },
+    {
       "name": "dataverse",
       "description": "Agent skills for building on, analyzing, and managing Microsoft Dataverse — with Dataverse MCP, PAC CLI, and Python SDK.",
       "category": "database",
